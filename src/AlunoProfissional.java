@@ -12,7 +12,7 @@ public class AlunoProfissional extends Aluno {
     @Override
     public void mostrarInformacoes() {
         System.out.println("========Aluno Profissional:========");
-        System.out.println("Nome:" + getNome()); // Esta acessando atraves do metodo
+        System.out.println("Nome:" + getNome()); // Esta acessando através do metodo
         System.out.println("Faixa:" + getFaixa());
         System.out.println("Idade:" + getIdade());
         System.out.println("Luta escolhida:" + getLutaEscolhida());

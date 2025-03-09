@@ -2,17 +2,21 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Academia implements Cadastravel {
+   //Lista que vai armazenar os alunos encontrados
     private final ArrayList<Aluno> alunos;
 
     public Academia() {
+        // Inicializa a lista de alunos
         alunos = new ArrayList<>();
     }
 
     @Override
+    //Solicita e armazena o nome do aluno
     public void cadastrarAluno(Scanner scanner) {
         System.out.println("Digite o nome do aluno: ");
         String nome = scanner.nextLine();
 
+        //Verifica se a idade fornecida é válida.
         int idade = 0;
         boolean idadevalida = false;
         while (!idadevalida){
@@ -29,7 +33,7 @@ public class Academia implements Cadastravel {
             }
         }
 
-
+        // Exibe as opcoes de rte marcial para escolha
         System.out.println("Escolha a Arte Marcial:");
         System.out.println("1. Karate");
         System.out.println("2. Judô");
@@ -40,6 +44,7 @@ public class Academia implements Cadastravel {
         System.out.println("7. Kung Fu");
 
         String lutaEscolhida = null;
+        //Verifica a escolha  e garante que ela é válida
         while (lutaEscolhida == null){
           try {
               int escolhaLuta = Integer.parseInt(scanner.nextLine());
@@ -74,7 +79,7 @@ public class Academia implements Cadastravel {
           }
         }
 
-
+        //Solicita e valida a faixa do aluno
         Faixa faixa = null;
         while (faixa == null) {
             System.out.println("Digite a faixa do aluno " +
@@ -85,10 +90,11 @@ public class Academia implements Cadastravel {
                 System.out.println("Faixa inválida. Tente novamente.");
             }
         }
-
+        // Pergunta se o aluno e profissional
         System.out.println("O aluno é profissional: (Sim/Não)");
         String categoria = scanner.nextLine();
 
+        //Se sim, pergunta qual categoria de peso
         if (categoria.equalsIgnoreCase("Sim")) {
             System.out.println("Qual a categoria de peso do aluno:");
             System.out.println("1. Leve");
@@ -117,14 +123,15 @@ public class Academia implements Cadastravel {
                     System.out.println(" Entrada inválida. Tente novamente.");
                 }
             }
-
+            // S e o aluno for profissional, cria o objeto AliniProissional.
             alunos.add(new AlunoProfissional(nome, faixa, idade, lutaEscolhida, categoriaProfissional));
         } else {
+            //Caso contrário é criado o AlunoRegular
             alunos.add(new AlunoRegular(nome, faixa, idade, lutaEscolhida ));
         }
         System.out.println("Aluno cadastrado com secesso!");
     }
-
+    //Metodo para visualizar todos os alunos cadastrados
     public void visualizarAlunos() {
         if (alunos.isEmpty()) {
             System.out.println("Nenhum aluno cadastrado.");
@@ -136,7 +143,7 @@ public class Academia implements Cadastravel {
             }
         }
     }
-
+    //Meetodo pra remover um aluno com base no nome.
     public void removerAluno(String nome) {
         boolean alunoRemovido = alunos.removeIf(aluno -> aluno.getNome().equalsIgnoreCase(nome));
 
@@ -148,12 +155,13 @@ public class Academia implements Cadastravel {
         }
     }
 
-
+    //Metodo que modifica as informacoes de um aluno cadastrado.
     public void modificarCadastro(Scanner scanner){
         System.out.println("Digit o nome do aluno a ser modificado: ");
         String nome = scanner.nextLine();
 
         Aluno alunoEncontrado = null;
+        //Procura o aluno na lista.
         for (Aluno aluno : alunos){
             if (aluno.getNome().equalsIgnoreCase(nome)){
                 alunoEncontrado = aluno;
@@ -161,12 +169,13 @@ public class Academia implements Cadastravel {
             }
         }
         if (alunoEncontrado != null) {
+            //Exibe as opcoes de modificacao
             System.out.println("Aluno encontrado! O que voce deseja modificar?");
             System.out.println("1. Nome");
             System.out.println("2. Faixa");
             System.out.println("3. Idade");
             int escolha = scanner.nextInt();
-            scanner.nextLine();
+            scanner.nextLine(); //Consome a quebra de linha remanescente
 
             switch (escolha) {
                 case 1:

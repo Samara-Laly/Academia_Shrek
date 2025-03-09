@@ -61,7 +61,7 @@ public abstract class Aluno {
     public void setLutaEscolhida(String lutaEscolhida) {
         this.lutaEscolhida = lutaEscolhida;
     }
-     //Metodo abstrato que mostra as informacoes dos alunos, implementadas nas subclasses.
+     //Metodo abstrato que mostra as informacões dos alunos, implementadas nas subclasses.
     public void mostrarInformacoes(){
 
     }

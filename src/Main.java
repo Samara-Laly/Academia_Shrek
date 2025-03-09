@@ -44,7 +44,7 @@ public class Main {
             }
             // Repete o processo até o usuario escolha a opção de "Sair"
         } while (opcao !=0);
-            //Fecha o scanner quando o program termina.
+            //Fecha o scanner quando o programa termina.
             scanner.close();
     }
 }
