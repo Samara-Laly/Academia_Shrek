@@ -1,25 +1,27 @@
-public class Aluno {
+// Classe abstract não pode ser instanciada diretamente
+// Atributos privados da classe Aluno
+public abstract class Aluno {
     private String nome;
     private Faixa faixa;
     private int idade;
     private String lutaEscolhida;
 
 
-    // contrutores
+    // Contrutor padrão, inicializa os atributos com valores padrão
     public Aluno(){
         this.nome = "";
-        this.faixa = Faixa.valueOf("Faixa.BRANCA");
+        this.faixa = Faixa.BRANCA;
         this.idade = 0;
         this.lutaEscolhida = "";
     }
-
+    // Construtor parametrizado, inicializa com valores específico
     public Aluno(String nome, Faixa faixa, int idade, String lutaEscolhida) {
         this.nome = nome;
         this.faixa = faixa;
         this.idade = idade;
         this.lutaEscolhida = lutaEscolhida;
     }
-
+    //Construtor de cópia, cria um abjeto a partir de outro.
     public Aluno(Aluno aluno){
         this.nome = aluno.nome;
         this.faixa = aluno.faixa;
@@ -27,7 +29,8 @@ public class Aluno {
         this.lutaEscolhida = aluno.lutaEscolhida;
     }
 
-    //Metodos Getters Setters
+    //Metodos Getters Setters (acessadores e modificadores)
+
     public String getNome() {
         return nome;
     }
@@ -58,6 +61,7 @@ public class Aluno {
     public void setLutaEscolhida(String lutaEscolhida) {
         this.lutaEscolhida = lutaEscolhida;
     }
+     //Metodo abstrato que mostra as informacoes dos alunos, implementadas nas subclasses.
     public void mostrarInformacoes(){
 
     }

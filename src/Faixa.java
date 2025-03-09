@@ -1,3 +1,10 @@
 public enum Faixa {
-    BRANCA, AZUL, ROXO, PRETA;
+    BRANCA,
+    AMARELA,
+    LARANJA,
+    VERDE,
+    AZUL,
+    ROXA,
+    MARROM,
+    PRETA,
 }
